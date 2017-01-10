@@ -4,9 +4,13 @@ import numpy as np
 import cv2
 
 # Read in and grayscale the image
-# Note: in the previous example we were reading a .jpg
+# Note: here we were reading a .jpg
+image = mpimg.imread('exit-ramp.jpg')
+
 # Here we read a .png and convert to 0,255 bytescale
-image = mpimg.imread('exit-ramp.png')
+# we can try for .png file
+
+# gray the image
 gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 
 # Define a kernel size and apply Gaussian smoothing
@@ -36,6 +40,7 @@ threshold = 15  # minimum number of votes (intersections in Hough grid cell)
 min_line_length = 40  # minimum number of pixels making up a line
 max_line_gap = 20  # maximum gap in pixels between connectable line segments
 line_image = np.copy(image) * 0  # creating a blank to draw lines on
+#  to get original image for overlapping remove 0 from above line of code
 
 # Run Hough on edge detected image
 # Output "lines" is an array containing endpoints of detected line segments
